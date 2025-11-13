@@ -1,0 +1,33 @@
+{
+  "tests": [
+    {
+      "name": "Register new user",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "username": "testuser789",
+        "email": "test789@example.com",
+        "password": "testpass123"
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "user_id": "number",
+        "username": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Register with missing fields",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "username": "testuser"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
